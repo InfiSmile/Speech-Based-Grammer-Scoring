@@ -4,7 +4,7 @@
 # Mic components (either may be used by your app)
 # st-audiorec==0.1.0
 streamlit-mic-recorder==0.0.8
-git
+
 # ML stack
 torch       # change to CUDA build if you have NVIDIA GPU (see notes below)
 torchaudio
