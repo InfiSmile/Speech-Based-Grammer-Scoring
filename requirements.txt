@@ -1,0 +1,36 @@
+# --- Core framework ---
+# streamlit==1.38.0
+
+# Mic components (either may be used by your app)
+# st-audiorec==0.1.0
+streamlit-mic-recorder==0.0.8
+
+# ML stack
+torch==2.4.1           # change to CUDA build if you have NVIDIA GPU (see notes below)
+torchaudio==2.4.1
+transformers==4.44.2
+accelerate==0.33.0
+safetensors==0.4.5
+tokenizers==0.19.1
+sentencepiece==0.2.0   # needed for DeBERTa; this version ships wheels for most Linux x86_64
+
+# ASR options (your app tries NeMo -> faster-whisper -> openai-whisper)
+openai-whisper==1.0.3  # pulls in ctranslate2
+# openai-whisper==20240930
+# NeMo ASR (optional; heavy). Uncomment the next line only if you truly need NeMo on the server:
+nemo_toolkit[asr]
+
+# Audio / DSP
+librosa
+# soundfile==0.12.1
+# numba==0.60.0           # librosa dependency path on some envs
+
+# Classic data science
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.2
+lightgbm==4.5.0
+# joblib==1.4.2
+
+# Utilities
+tqdm==4.66.5

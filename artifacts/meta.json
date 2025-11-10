@@ -1,0 +1,16 @@
+{
+  "generated_at": "2025-11-10T19:39:52.259302Z",
+  "device": "cuda",
+  "text_model": "microsoft/deberta-v3-small",
+  "epochs_text_full": 5,
+  "epochs_audio_full": 8,
+  "use_zscore_training_cv": true,
+  "artifacts": {
+    "text_head": "text_head.pt",
+    "audio_mlp": "audio_mlp.pt",
+    "rules_model": "rules_lgbm.txt",
+    "w_val": "w_val.npy",
+    "w_rank": "w_rank.npy",
+    "iso": "iso.pkl"
+  }
+}
