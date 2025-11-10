@@ -6,7 +6,7 @@
 streamlit-mic-recorder==0.0.8
 
 # ML stack
-torch==2.4.1           # change to CUDA build if you have NVIDIA GPU (see notes below)
+torch       # change to CUDA build if you have NVIDIA GPU (see notes below)
 torchaudio==2.4.1
 transformers==4.44.2
 accelerate==0.33.0
