@@ -16,6 +16,6 @@ tqdm==4.67.1
 
 # Optional but useful for Whisper pipelines
 transformers==4.44.2
-tokenizers==0.20.1
+tokenizers==0.19.0
 
 sentencepiece
