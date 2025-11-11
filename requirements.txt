@@ -18,5 +18,5 @@ tqdm==4.67.1
 transformers==4.46.2
 tokenizers==0.20.1
 
-
+lightgbm
 sentencepiece
