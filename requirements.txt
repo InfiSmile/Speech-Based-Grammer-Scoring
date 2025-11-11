@@ -15,7 +15,7 @@ tokenizers==0.19.1
 sentencepiece==0.2.0   # needed for DeBERTa; this version ships wheels for most Linux x86_64
 
 # ASR options (your app tries NeMo -> faster-whisper -> openai-whisper)
-git+https://github.com/openai/whisper.git# pulls in ctranslate2
+git+https://github.com/openai/whisper.git # pulls in ctranslate2
 # openai-whisper==20240930
 # NeMo ASR (optional; heavy). Uncomment the next line only if you truly need NeMo on the server:
 nemo_toolkit[asr]
