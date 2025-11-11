@@ -446,7 +446,7 @@ def get_audio_from_mic() -> Optional[bytes]:
 # ------------------ UI ------------------
 st.set_page_config(page_title="Multimodal Grammar Scorer (Audio → Text → Score)", layout="wide")
 st.title("🎤 Multimodal Grammar Scorer (Audio → Text → Score)")
-st.caption("Record or upload speech, auto-transcribe to text, and predict grammar quality on [0,5].")
+st.caption("Record or upload speech, auto-transcribe to text, and predict grammar quality on [1,5].")
 
 with st.sidebar:
     st.subheader("Settings")
@@ -505,7 +505,7 @@ if run:
         wav, sr, asr_backend=asr_choice
     )
 
-    st.success(f"Predicted Grammar Score: **{details['final_pred']:.2f}**  (0–5)")
+    st.success(f"Predicted Grammar Score: **{details['final_pred']:.2f}**  (1–5)")
 
     with st.expander("Show transcript", expanded=True):
         if (details["transcript"] or "").strip():
@@ -518,3 +518,71 @@ if run:
         c1.metric("Text branch",  f"{details['text_pred']:.2f}"  if details["text_pred"]  is not None else "—")
         c2.metric("Audio branch", f"{details['audio_pred']:.2f}" if details["audio_pred"] is not None else "—")
         c3.metric("Rules branch", f"{details['rules_pred']:.2f}" if details["rules_pred"] is not None else "—")
+
+with col2:
+    st.subheader("📘 Grammar Score Rubric")
+    
+    st.markdown("""
+    <style>
+    .table-container {
+        margin-top: 4px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.85rem;
+    }
+    thead th {
+        background-color: #4f8bf9;
+        color: white;
+        padding: 6px;
+        text-align: center;
+    }
+    tbody td {
+        border: 1px solid #ddd;
+        padding: 6px;
+        vertical-align: top;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    rubric_html = """
+    <div class="table-container">
+    <table>
+    <thead>
+    <tr>
+        <th>Score</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><b>1</b></td>
+        <td>Struggles with sentence structure; very limited grammar control.</td>
+    </tr>
+    <tr>
+        <td><b>2</b></td>
+        <td>Frequent basic grammatical mistakes; incomplete sentences.</td>
+    </tr>
+    <tr>
+        <td><b>3</b></td>
+        <td>Decent grasp of structure but noticeable grammar or syntax errors.</td>
+    </tr>
+    <tr>
+        <td><b>4</b></td>
+        <td>Strong grammar control; only minor, non-disruptive errors.</td>
+    </tr>
+    <tr>
+        <td><b>5</b></td>
+        <td>Highly accurate grammar; handles complex structures well.</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    """
+
+    st.markdown(rubric_html, unsafe_allow_html=True)
+
