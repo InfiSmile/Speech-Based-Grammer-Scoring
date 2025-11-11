@@ -464,7 +464,7 @@ audio_mlp, audio_ready = load_audio_model()
 lgbm, rf, rules_ready  = load_rules_models()
 w_val, w_rank, iso     = load_meta()
 
-cols = st.columns([1, 1])
+cols = st.columns([1, 1,1])
 with cols[0]:
     st.subheader("1) Provide Audio")
     wav_bytes = None
@@ -519,7 +519,7 @@ if run:
         c2.metric("Audio branch", f"{details['audio_pred']:.2f}" if details["audio_pred"] is not None else "—")
         c3.metric("Rules branch", f"{details['rules_pred']:.2f}" if details["rules_pred"] is not None else "—")
 
-with col2:
+with cols[2]:
     st.subheader("📘 Grammar Score Rubric")
     
     st.markdown("""
