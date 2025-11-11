@@ -4,7 +4,7 @@ openai-whisper @ git+https://github.com/openai/whisper.git@c0d2f624c09dc18e709e3
 
 # Audio and signal processing
 torch==2.5.1
-torchaudio==2.5.1
+torchaudio==2.6.0
 numpy==1.26.4
 pandas==2.3.3
 
