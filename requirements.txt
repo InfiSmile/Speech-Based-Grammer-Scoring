@@ -27,7 +27,7 @@ librosa
 
 # Classic data science
 numpy==1.26.4
-pandas==2.2.2
+pandas
 scikit-learn
 lightgbm
 # joblib==1.4.2
